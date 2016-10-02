@@ -65,12 +65,12 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Pushbot: Auto Drive By Encoder", group="Pushbot")
+@Autonomous(name="Team8804: Auto Drive By Encoder", group="Team8804")
 @Disabled
-public class Robot8804AutoDriveByEncoder_Linear extends LinearOpMode {
+public class Team8804AutoDriveByEncoder_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
+    Hardware8804Robot         robot   = new Hardware8804Robot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder

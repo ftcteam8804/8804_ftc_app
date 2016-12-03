@@ -24,11 +24,17 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class Hardware8804Robot
 {
     /* Public OpMode members. */
-    public DcMotor  leftMotor   = null;
-    public DcMotor  rightMotor  = null;
-    public DcMotor  armMotor    = null;
-    public Servo    leftClaw    = null;
-    public Servo    rightClaw   = null;
+    public DcMotor  leftDriveMotor          = null;
+    public DcMotor  rightDriveMotor         = null;
+    public DcMotor  ballPickerMotor         = null;
+    public DcMotor  ballTosserMotor         = null;
+    public DcMotor  leftRackPinionMotor     = null;
+    public DcMotor  rightRackPinionMotor    = null;
+    public DcMotor  leftClawMotor           = null;
+    public DcMotor  rightClawMotor          = null;
+    //public DcMotor  armMotor    = null;
+    //public Servo    leftClaw    = null;
+    //public Servo    rightClaw   = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.45 ;
@@ -49,21 +55,45 @@ public class Hardware8804Robot
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        leftMotor   = hwMap.dcMotor.get("left_drive");
-        rightMotor  = hwMap.dcMotor.get("right_drive");
+        leftDriveMotor          = hwMap.dcMotor.get("left_drive");
+        rightDriveMotor         = hwMap.dcMotor.get("right_drive");
+        ballPickerMotor         = hwMap.dcMotor.get("ball_picker");
+        ballTosserMotor         = hwMap.dcMotor.get("ball_tosser");
+        leftRackPinionMotor     = hwMap.dcMotor.get("left_rp");
+        rightRackPinionMotor    = hwMap.dcMotor.get("right_rp");
+        leftClawMotor           = hwMap.dcMotor.get("left_claw");
+        rightClawMotor          = hwMap.dcMotor.get("right_claw");
         //armMotor    = hwMap.dcMotor.get("left_arm");
-        leftMotor.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
-        rightMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        leftDriveMotor.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
+        rightDriveMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        ballPickerMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        ballTosserMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        leftRackPinionMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        rightRackPinionMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        leftClawMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        rightClawMotor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
 
         // Set all motors to zero power
-        leftMotor.setPower(0);
-        rightMotor.setPower(0);
+        leftDriveMotor.setPower(0);
+        rightDriveMotor.setPower(0);
+        ballPickerMotor.setPower(0);
+        ballTosserMotor.setPower(0);
+        leftRackPinionMotor.setPower(0);
+        rightRackPinionMotor.setPower(0);
+        leftClawMotor.setPower(0);
+        rightClawMotor.setPower(0);
         //armMotor.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        leftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        ballPickerMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        ballTosserMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftRackPinionMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightRackPinionMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftClawMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightClawMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize ALL installed servos.

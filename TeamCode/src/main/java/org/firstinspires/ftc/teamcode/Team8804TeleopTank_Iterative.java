@@ -54,8 +54,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
-@Disabled
+@TeleOP(name="Team8804: Teleop Tank", group="Team8804")
+//@TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
+//@Disabled
 public class Team8804TeleopTank_Iterative extends OpMode{
 
     /* Declare OpMode members. */
@@ -105,9 +106,10 @@ public class Team8804TeleopTank_Iterative extends OpMode{
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
-        robot.leftMotor.setPower(left);
-        robot.rightMotor.setPower(right);
+        robot.leftDriveMotor.setPower(left);
+        robot.rightDriveMotor.setPower(right);
 
+        /*
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
             clawOffset += CLAW_SPEED;
@@ -126,6 +128,7 @@ public class Team8804TeleopTank_Iterative extends OpMode{
             robot.armMotor.setPower(robot.ARM_DOWN_POWER);
         else
             robot.armMotor.setPower(0.0);
+        */
 
         // Send telemetry message to signify robot running;
         telemetry.addData("claw",  "Offset = %.2f", clawOffset);

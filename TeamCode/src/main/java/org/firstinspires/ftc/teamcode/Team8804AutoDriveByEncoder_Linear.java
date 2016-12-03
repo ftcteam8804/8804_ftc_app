@@ -78,7 +78,7 @@ public class Team8804AutoDriveByEncoder_Linear extends LinearOpMode {
     static final double     WHEEL_DIAMETER_INCHES   = 3.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
                                                       (WHEEL_DIAMETER_INCHES * 3.1415);
-    static final double     DRIVE_SPEED             = 0.1;
+    static final double     DRIVE_SPEED             = 0.3;
     static final double     TURN_SPEED              = 0.5;
 
     @Override
@@ -112,7 +112,7 @@ public class Team8804AutoDriveByEncoder_Linear extends LinearOpMode {
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED,  68,  68, 10.0);  // S1: Forward 47 Inches with 5 Sec timeout
+        encoderDrive(DRIVE_SPEED,  72,  72, 10.0);  // S1: Forward 47 Inches with 5 Sec timeout
         //encoderDrive(DRIVE_SPEED,  12,  12, 10.0);  // S1: Forward 47 Inches with 5 Sec timeout
         //encoderDrive(TURN_SPEED,   6, -6, 10.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
         //encoderDrive(DRIVE_SPEED, -12, -12, 10.0);  // S3: Reverse 24 Inches with 4 Sec timeout
